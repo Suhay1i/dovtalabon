@@ -274,18 +274,25 @@
       text-align: center;
     }
 
-    .hero-mockup img {
+    .mockup-img {
       width: 100%;
       max-width: 340px;
       border-radius: 36px;
       box-shadow: var(--shadow-lg), 0 30px 60px rgba(0, 0, 0, 0.2);
       transform: rotate(-2deg);
-      transition: transform 0.4s ease;
+      transition: transform 0.4s ease, opacity 0.3s ease;
     }
 
-    .hero-mockup img:hover {
+    .mockup-img:hover {
       transform: rotate(0deg) scale(1.02);
     }
+
+    /* Адаптивность мокапа под тему */
+    .mockup-dark { display: none; }
+    .mockup-light { display: inline-block; }
+
+    [data-theme="dark"] .mockup-dark { display: inline-block; }
+    [data-theme="dark"] .mockup-light { display: none; }
 
     .stats-bar {
       display: grid;
@@ -576,7 +583,10 @@
     </div>
 
     <div class="hero-mockup">
-      <img src="mockup.jpg" alt="Dovtalabon App UI Mockup" />
+      <!-- Мокап для Светлой Темы -->
+      <img src="mockup-light.jpg" alt="Dovtalabon App UI Light Theme" class="mockup-img mockup-light" />
+      <!-- Мокап для Тёмной Темы -->
+      <img src="mockup.jpg" alt="Dovtalabon App UI Dark Theme" class="mockup-img mockup-dark" />
     </div>
   </section>
 
@@ -849,7 +859,6 @@
     const langBtn = document.getElementById('lang-btn');
     const langLabel = document.getElementById('lang-label');
 
-    // Определение системной темы
     function applySystemTheme() {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const theme = prefersDark ? 'dark' : 'light';
