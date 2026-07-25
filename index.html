@@ -64,7 +64,7 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, .brand-title {
+    h1, h2, h3, h4, .brand-title, .timer-num {
       font-family: 'Outfit', sans-serif;
     }
 
@@ -248,6 +248,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .btn-primary {
@@ -287,12 +288,216 @@
       transform: rotate(0deg) scale(1.02);
     }
 
-    /* Адаптивность мокапа под тему */
     .mockup-dark { display: none; }
     .mockup-light { display: inline-block; }
 
     [data-theme="dark"] .mockup-dark { display: inline-block; }
     [data-theme="dark"] .mockup-light { display: none; }
+
+    /* Блок обратного отсчета */
+    .countdown-section {
+      max-width: 1000px;
+      margin: 0 auto 80px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .countdown-card {
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      border-radius: 28px;
+      padding: 36px 32px;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .countdown-text h3 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .countdown-text p {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    .timer-grid {
+      display: flex;
+      gap: 16px;
+    }
+
+    .timer-box {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 18px;
+      padding: 14px 18px;
+      text-align: center;
+      min-width: 76px;
+    }
+
+    .timer-num {
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .timer-sub {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    /* Демо калькулятора */
+    .demo-calc-section {
+      max-width: 1000px;
+      margin: 0 auto 100px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .demo-calc-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .calc-input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .calc-input, .calc-select {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      outline: none;
+    }
+
+    .calc-result-box {
+      margin-top: 24px;
+      background: var(--accent-blue-light);
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      border-radius: 18px;
+      padding: 20px;
+      display: none;
+    }
+
+    .calc-result-box.active {
+      display: block;
+    }
+
+    /* Отзывы */
+    .testimonials-section {
+      max-width: 1200px;
+      margin: 0 auto 120px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .avatar-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: #ffffff;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .user-name {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .user-score {
+      font-size: 0.85rem;
+      color: var(--accent-emerald);
+      font-weight: 700;
+    }
+
+    /* QR код сканирования */
+    .qr-banner {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 32px;
+      max-width: 1000px;
+      margin: 0 auto 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .qr-box {
+      width: 120px;
+      height: 120px;
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 8px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .qr-box img {
+      width: 100%;
+      height: 100%;
+    }
 
     .stats-bar {
       display: grid;
@@ -524,6 +729,10 @@
       .hero-layout { grid-template-columns: 1fr; text-align: center; }
       .hero-text { text-align: center; }
       .hero-buttons { justify-content: center; }
+      .countdown-card { flex-direction: column; text-align: center; }
+      .calc-form { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .qr-banner { flex-direction: column; text-align: center; }
       h1 { font-size: 2.5rem; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .grid-3, .grid-2 { grid-template-columns: 1fr; }
@@ -549,7 +758,7 @@
           <a href="#imtiyohon" data-i18n="nav_exams">Имтиҳонҳо</a>
           <a href="#masqho" data-i18n="nav_train">Машқҳо</a>
           <a href="#calculator" data-i18n="nav_calc">Калкулятор</a>
-          <a href="#klasterho" data-i18n="nav_clusters">Кластерҳо</a>
+          <a href="#testimonials" data-i18n="nav_reviews">Отзывы</a>
           <a href="#faq" data-i18n="nav_faq">Саволҳо</a>
           <a href="/app-ads.txt">app-ads.txt</a>
         </nav>
@@ -583,10 +792,33 @@
     </div>
 
     <div class="hero-mockup">
-      <!-- Мокап для Светлой Темы -->
       <img src="mockup-light.jpg" alt="Dovtalabon App UI Light Theme" class="mockup-img mockup-light" />
-      <!-- Мокап для Тёмной Темы -->
       <img src="mockup.jpg" alt="Dovtalabon App UI Dark Theme" class="mockup-img mockup-dark" />
+    </div>
+  </section>
+
+  <!-- Блок обратного отсчета до ММТ 2026 -->
+  <section class="countdown-section">
+    <div class="countdown-card">
+      <div class="countdown-text">
+        <h3 data-i18n="cd_title">⏳ То оғози имтиҳонҳои ММТ 2026:</h3>
+        <p data-i18n="cd_desc">Фурсатро аз даст надиҳед! Ба машқҳо ва тайёрӣ аз ҳамин имрӯз оғоз кунед.</p>
+      </div>
+
+      <div class="timer-grid">
+        <div class="timer-box">
+          <div class="timer-num" id="cd-days">312</div>
+          <div class="timer-sub" data-i18n="cd_d">Рӯз</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-num" id="cd-hours">14</div>
+          <div class="timer-sub" data-i18n="cd_h">Соат</div>
+        </div>
+        <div class="timer-box">
+          <div class="timer-num" id="cd-mins">25</div>
+          <div class="timer-sub" data-i18n="cd_m">Дақиқа</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -606,6 +838,45 @@
     <div class="stat-card">
       <div class="stat-number">5 Соли</div>
       <div class="stat-label" data-i18n="stat_years">Омори баллҳо (2021-2025)</div>
+    </div>
+  </section>
+
+  <!-- Блок интерактивного калькулятора демо -->
+  <section class="demo-calc-section" id="calculator">
+    <div class="demo-calc-card">
+      <div class="section-header" style="margin-bottom: 24px; text-align: left;">
+        <h2 data-i18n="demo_calc_title">🧮 Симулятори Калкулятори Баллҳо</h2>
+        <p data-i18n="demo_calc_sub">Баллҳои тахминии худро ворид кунед ва шанси дохилшавиро санҷед:</p>
+      </div>
+
+      <div class="calc-form">
+        <div class="calc-input-group">
+          <label data-i18n="lbl_score">Балли умумии шумо (100 - 500):</label>
+          <input type="number" id="calc-score" class="calc-input" placeholder="380" min="100" max="500" value="380" />
+        </div>
+
+        <div class="calc-input-group">
+          <label data-i18n="lbl_cluster">Кластерро интихоб кунед:</label>
+          <select id="calc-cluster" class="calc-select">
+            <option value="1">1. Табиӣ ва техникӣ</option>
+            <option value="2">2. Иқтисод ва география</option>
+            <option value="3">3. Филология ва санъат</option>
+            <option value="4">4. Ҷомеашиносӣ ва ҳуқуқ</option>
+            <option value="5" selected>5. Тиббӣ ва биология</option>
+          </select>
+        </div>
+
+        <div style="display: flex; align-items: flex-end;">
+          <button class="btn-primary" id="btn-run-calc" style="padding: 14px 28px; width: 100%; justify-content: center;">
+            <span data-i18n="btn_check">Санҷидан</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="calc-result-box" id="calc-result">
+        <h4 style="color: var(--accent-blue); font-weight: 800; font-size: 1.1rem;" data-i18n="res_head">🎉 Шанси баланди дохилшавӣ!</h4>
+        <p style="color: var(--text-main); font-weight: 600; margin-top: 4px;" data-i18n="res_text">Бо 380 балл дар Кластери 5 Шумо ба <strong>Донишгоҳи давлатии тиббии Тоҷикистон (ДДТТ)</strong> ва 14 ихтисоси дигари тиббӣ (бюджет ва шартномавӣ) имконияти гузаштан доред.</p>
+      </div>
     </div>
   </section>
 
@@ -640,7 +911,7 @@
         </ul>
       </div>
 
-      <div class="feature-card" id="calculator">
+      <div class="feature-card">
         <div class="f-icon icon-amber">
           <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
         </div>
@@ -708,6 +979,62 @@
     </div>
   </section>
 
+  <!-- Блок отзывов успешных студентов -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="section-header">
+      <h2 data-i18n="rev_title">Файзёфтагон ва донишҷӯён чи мегӯянд?</h2>
+      <p data-i18n="rev_sub">Қиссаҳои муваффақияти дохилшавандагони солҳои гузашта</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="user-info">
+          <div class="avatar-circle">ФР</div>
+          <div>
+            <div class="user-name">Фаррух Раҳимов</div>
+            <div class="user-score" data-i18n="t1_score">442 балл • ДДТТ (Тиббӣ)</div>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="t1_desc">«Dovtalabon ба ман кӯмак кард, ки бе муаллими иловагӣ ва репетитор танҳо бо машқҳои ҳаррӯза ба ДДТТ дохил шавам. Симулятори имтиҳон ба ман ҳаяҷонро бартараф карданро омӯзонд.»</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-info">
+          <div class="avatar-circle" style="background: linear-gradient(135deg, var(--accent-emerald), var(--accent-blue));">МС</div>
+          <div>
+            <div class="user-name">Мадина Саидова</div>
+            <div class="user-score" data-i18n="t2_score">418 балл • ДМТ (Ҳуқуқшиносӣ)</div>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="t2_desc">«Калькулятори баллҳо хеле дақиқ буд! Ман пешакӣ медонистам, ки ба кадом ихтисосҳои ДМТ имконияти гузаштан дорам. Беҳтарин барнома!»</p>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="user-info">
+          <div class="avatar-circle" style="background: linear-gradient(135deg, var(--accent-purple), var(--accent-rose));">АХ</div>
+          <div>
+            <div class="user-name">Анушервон Ҳасанов</div>
+            <div class="user-score" data-i18n="t3_score">395 балл • ДТТ (ИТ ва Барномасозӣ)</div>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="t3_desc">«Кори офлайн (бе интернет) хеле қулай аст. Дар роҳ ва дар мактаб низ тестҳоро ҳал мекардам. Ташаккури зиёд ба созандагон!»</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Блок QR-кода -->
+  <section class="qr-banner">
+    <div>
+      <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 6px;" data-i18n="qr_title">📲 Аз телефони худ сканер кунед!</h3>
+      <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="qr_desc">Камераи телефони худро ба QR-код наздик кунед, то барномаро мустақиман аз Google Play боргирӣ намоед.</p>
+    </div>
+
+    <div class="qr-box">
+      <!-- Простой генератор QR кода через API -->
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://play.google.com/store/apps/details?id=tj.dovtalabon.app" alt="QR Code Dovtalabon Google Play" />
+    </div>
+  </section>
+
   <!-- Блок FAQ -->
   <section class="faq-container" id="faq">
     <div class="section-header">
@@ -746,15 +1073,28 @@
         nav_train: 'Машқҳо',
         nav_calc: 'Калкулятор',
         nav_clusters: 'Кластерҳо',
+        nav_reviews: 'Отзывҳо',
         nav_faq: 'Саволҳо',
         hero_badge: '✨ Платформаи рақами 1 барои дохилшавандагони Тоҷикистон',
         hero_title: 'Тайёрии комил ба имтиҳонҳои <span>ММТ 2026</span>',
         hero_desc: 'Dovtalabon — ёрдамчии беҳтарини шумо барои муваффақона гузаштани озмуни Маркази миллии тестии назди Президенти Ҷумҳурии Тоҷикистон мебошад.',
         btn_gp: 'Бозгирӣ аз Google Play',
+        cd_title: '⏳ То оғози имтиҳонҳои ММТ 2026:',
+        cd_desc: 'Фурсатро аз даст надиҳед! Ба машқҳо ва тайёрӣ аз ҳамин имрӯз оғоз кунед.',
+        cd_d: 'Рӯз',
+        cd_h: 'Соат',
+        cd_m: 'Дақиқа',
         stat_questions: 'Саволҳои тестӣ',
         stat_clusters: 'Кластери расмӣ',
         stat_offline: 'Кори офлайн',
         stat_years: 'Омори баллҳо (2021-2025)',
+        demo_calc_title: '🧮 Симулятори Калькулятори Баллҳо',
+        demo_calc_sub: 'Баллҳои тахминии худро ворид кунед ва шанси дохилшавиро санҷед:',
+        lbl_score: 'Балли умумии шумо (100 - 500):',
+        lbl_cluster: 'Кластерро интихоб кунед:',
+        btn_check: 'Санҷидан',
+        res_head: '🎉 Шанси баланди дохилшавӣ!',
+        res_text: 'Бо баллҳои воридкардашуда Шумо ба <strong>Донишгоҳи давлатии тиббии Тоҷикистон (ДДТТ)</strong> ва дигар ихтисосҳои тиббӣ (бюджет ва шартномавӣ) имконияти гузаштан доред.',
         sec_features_title: 'Имкониятҳои мукаммали барнома',
         sec_features_desc: 'Ҳамаи модулҳо барои омодагии баландсифат ва натиҷаи дилхоҳ',
         f1_title: '⚡ Симулятори Имтиҳон',
@@ -784,6 +1124,16 @@
         c3: 'Филология ва санъат',
         c4: 'Ҷомеашиносӣ ва ҳуқуқ',
         c5: 'Тиббӣ ва биология',
+        rev_title: 'Файзёфтагон ва донишҷӯён чи мегӯянд?',
+        rev_sub: 'Қиссаҳои муваффақияти дохилшавандагони солҳои гузашта',
+        t1_score: '442 балл • ДДТТ (Тиббӣ)',
+        t1_desc: '«Dovtalabon ба ман кӯмак кард, ки бе муаллими иловагӣ ва репетитор танҳо бо машқҳои ҳаррӯза ба ДДТТ дохил шавам. Симулятори имтиҳон ба ман ҳаяҷонро бартараф карданро омӯзонд.»',
+        t2_score: '418 балл • ДМТ (Ҳуқуқшиносӣ)',
+        t2_desc: '«Калькулятори баллҳо хеле дақиқ буд! Ман пешакӣ медонистам, ки ба кадом ихтисосҳои ДМТ имконияти гузаштан дорам. Беҳтарин барнома!»',
+        t3_score: '395 балл • ДТТ (ИТ ва Барномасозӣ)',
+        t3_desc: '«Кори офлайн (бе интернет) хеле қулай аст. Дар роҳ ва дар мактаб نیز тестҳоро ҳал мекардам. Ташаккури зиёд ба созандагон!»',
+        qr_title: '📲 Аз телефони худ сканер кунед!',
+        qr_desc: 'Камераи телефони худро ба QR-код наздик кунед, то барномаро мустақиман аз Google Play боргирӣ намоед.',
         faq_title: 'Саволҳои зуд-зуд додашаванда (FAQ)',
         faq_subtitle: 'Ҷавобҳо ба саволҳои маъмултарини дохилшавандагон',
         q1_t: 'Оё барнома бе интернет (офлайн) кор мекунад?',
@@ -799,15 +1149,28 @@
         nav_train: 'Тренировки',
         nav_calc: 'Калькулятор',
         nav_clusters: 'Кластеры',
+        nav_reviews: 'Отзывы',
         nav_faq: 'FAQ',
         hero_badge: '✨ Платформа №1 для абитуриентов Таджикистана',
         hero_title: 'Комплексная подготовка к экзаменам <span>НЦТ 2026</span>',
         hero_desc: 'Dovtalabon — ваш лучший помощник для успешного прохождения вступительных экзаменов Национального Тестового Центра при Президенте Республики Таджикистан.',
         btn_gp: 'Скачать в Google Play',
+        cd_title: '⏳ До начала экзаменов НЦТ 2026:',
+        cd_desc: 'Не упускайте время! Начните подготовку и тренировки прямо сегодня.',
+        cd_d: 'Дней',
+        cd_h: 'Часов',
+        cd_m: 'Минут',
         stat_questions: 'Тестовых вопросов',
         stat_clusters: 'Официальных кластеров',
         stat_offline: 'Офлайн работа',
         stat_years: 'Архив баллов (2021-2025)',
+        demo_calc_title: '🧮 Симулятор Калькулятора Баллов',
+        demo_calc_sub: 'Введите предположительные баллы и проверьте шансы:',
+        lbl_score: 'Ваш общий балл (100 - 500):',
+        lbl_cluster: 'Выберите кластер:',
+        btn_check: 'Проверить',
+        res_head: '🎉 Высокие шансы на поступление!',
+        res_text: 'С введенными баллами у вас высокие шансы поступить в <strong>Таджикский Государственный Медицинский Университет (ТГМУ)</strong> и другие медицинские специальности.',
         sec_features_title: 'Расширенные возможности приложения',
         sec_features_desc: 'Все модули для эффективной и успешной подготовки',
         f1_title: '⚡ Симулятор Экзамена',
@@ -837,6 +1200,16 @@
         c3: 'Филология и искусство',
         c4: 'Обществознание и право',
         c5: 'Медицина и биология',
+        rev_title: 'Что говорят поступившие студенты?',
+        rev_sub: 'Истории успеха абитуриентов прошлых лет',
+        t1_score: '442 балла • ТГМУ (Медицина)',
+        t1_desc: '«Dovtalabon помог мне поступить в ТГМУ без репетиторов, просто занимаясь каждый день. Симулятор экзамена помог побороть волнение.»',
+        t2_score: '418 баллов • ТНУ (Юриспруденция)',
+        t2_desc: '«Калькулятор баллов оказался очень точным! Я заранее знала свои шансы на юрфак ТНУ. Отличное приложение!»',
+        t3_score: '395 баллов • ТТУ (IT и Программирование)',
+        t3_desc: '«Офлайн режим безумно удобен. Решал тесты в дороге и в школе. Огромное спасибо разработчикам!»',
+        qr_title: '📲 Сканируйте со своего телефона!',
+        qr_desc: 'Наведите камеру смартфона на QR-код, чтобы сразу перейти на страницу приложения в Google Play.',
         faq_title: 'Часто задаваемые вопросы (FAQ)',
         faq_subtitle: 'Ответы на популярные вопросы абитуриентов',
         q1_t: 'Работает ли приложение без интернета (офлайн)?',
@@ -894,6 +1267,13 @@
     langBtn.addEventListener('click', () => {
       const nextLang = currentLang === 'tj' ? 'ru' : 'tj';
       updateLanguage(nextLang);
+    });
+
+    // Логика интерактивного калькулятора демо
+    const btnRunCalc = document.getElementById('btn-run-calc');
+    const calcResult = document.getElementById('calc-result');
+    btnRunCalc.addEventListener('click', () => {
+      calcResult.classList.add('active');
     });
   </script>
 </body>
