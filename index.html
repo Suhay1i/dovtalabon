@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tj">
+<html lang="tj" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,12 +24,36 @@
       --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
       --shadow-lg: 0 20px 25px -5px rgba(37, 99, 235, 0.08), 0 8px 10px -6px rgba(37, 99, 235, 0.04);
       --shadow-glow: 0 12px 30px rgba(37, 99, 235, 0.2);
+      --cluster-banner-bg: linear-gradient(135deg, #1e293b, #0f172a);
+      --cluster-banner-text: #ffffff;
+      --header-bg: rgba(250, 252, 254, 0.8);
+    }
+
+    [data-theme="dark"] {
+      --bg: #090d16;
+      --card-bg: rgba(21, 30, 49, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-blue-light: rgba(59, 130, 246, 0.15);
+      --accent-purple: #8b5cf6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      --shadow-glow: 0 12px 30px rgba(59, 130, 246, 0.3);
+      --cluster-banner-bg: linear-gradient(135deg, #151e31, #0b111e);
+      --cluster-banner-text: #f8fafc;
+      --header-bg: rgba(9, 13, 22, 0.8);
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
 
     body {
@@ -40,7 +64,7 @@
       line-height: 1.6;
     }
 
-    h1, h2, h3, h4, .brand-name {
+    h1, h2, h3, h4, .brand-title {
       font-family: 'Outfit', sans-serif;
     }
 
@@ -52,17 +76,24 @@
       width: 100%;
       max-width: 1400px;
       height: 700px;
-      background: radial-gradient(circle at 50% -20%, rgba(37, 99, 235, 0.12), rgba(124, 58, 237, 0.06), transparent 70%);
+      background: radial-gradient(circle at 50% -20%, rgba(37, 99, 235, 0.15), rgba(124, 58, 237, 0.08), transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
     header {
-      position: relative;
-      z-index: 10;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .header-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 24px;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -76,10 +107,10 @@
     }
 
     .logo-icon {
-      width: 48px;
-      height: 48px;
+      width: 44px;
+      height: 44px;
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-      border-radius: 16px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -87,24 +118,30 @@
     }
 
     .logo-icon svg {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       stroke: #ffffff;
       stroke-width: 2.2;
       fill: none;
     }
 
     .brand-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 900;
       color: var(--text-main);
       letter-spacing: -0.5px;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
     }
 
     .nav-links a {
@@ -112,11 +149,47 @@
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 600;
-      transition: color 0.2s;
     }
 
     .nav-links a:hover {
       color: var(--accent-blue);
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 4px;
+      border-radius: 14px;
+    }
+
+    .btn-control {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-control:hover, .btn-control.active {
+      background: var(--accent-blue-light);
+      color: var(--accent-blue);
+    }
+
+    .btn-control svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+      fill: none;
+      stroke: currentColor;
     }
 
     .hero {
@@ -175,7 +248,7 @@
     .btn-primary {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
       color: #ffffff;
       font-weight: 700;
@@ -184,12 +257,11 @@
       padding: 16px 36px;
       border-radius: 18px;
       box-shadow: var(--shadow-glow);
-      transition: all 0.25s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.3);
+      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.35);
     }
 
     .stats-bar {
@@ -271,11 +343,10 @@
       border-radius: 28px;
       padding: 36px 32px;
       box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
     }
 
     .feature-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-4px);
       box-shadow: var(--shadow-lg);
       border-color: rgba(37, 99, 235, 0.3);
     }
@@ -297,11 +368,11 @@
       fill: none;
     }
 
-    .icon-blue { background: #eff6ff; color: var(--accent-blue); }
-    .icon-purple { background: #f5f3ff; color: var(--accent-purple); }
-    .icon-emerald { background: #ecfdf5; color: var(--accent-emerald); }
-    .icon-amber { background: #fffbeb; color: var(--accent-amber); }
-    .icon-rose { background: #fff1f2; color: var(--accent-rose); }
+    .icon-blue { background: rgba(37, 99, 235, 0.12); color: var(--accent-blue); }
+    .icon-purple { background: rgba(124, 58, 237, 0.12); color: var(--accent-purple); }
+    .icon-emerald { background: rgba(5, 150, 105, 0.12); color: var(--accent-emerald); }
+    .icon-amber { background: rgba(217, 119, 6, 0.12); color: var(--accent-amber); }
+    .icon-rose { background: rgba(225, 29, 72, 0.12); color: var(--accent-rose); }
 
     .feature-card h3 {
       font-size: 1.35rem;
@@ -317,12 +388,12 @@
     }
 
     .cluster-banner {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
+      background: var(--cluster-banner-bg);
       border-radius: 32px;
       padding: 48px;
-      color: #ffffff;
+      color: var(--cluster-banner-text);
       margin-top: 40px;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      box-shadow: var(--shadow-lg);
     }
 
     .cluster-grid {
@@ -357,7 +428,7 @@
 
     .footer {
       border-top: 1px solid var(--card-border);
-      background: #ffffff;
+      background: var(--card-bg);
       padding: 40px 24px;
       text-align: center;
       color: var(--text-muted);
@@ -372,7 +443,7 @@
     }
 
     @media (max-width: 900px) {
-      h1 { font-size: 2.6rem; }
+      h1 { font-size: 2.5rem; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .grid-3, .grid-2 { grid-template-columns: 1fr; }
       .cluster-grid { grid-template-columns: repeat(2, 1fr); }
@@ -384,29 +455,46 @@
   <div class="bg-gradient"></div>
 
   <header>
-    <a href="#" class="logo">
-      <div class="logo-icon">
-        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+        </div>
+        <span class="brand-title">Dovtalabon</span>
+      </a>
+
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#imtiyohon" data-i18n="nav_exams">Имтиҳонҳо</a>
+          <a href="#masqho" data-i18n="nav_train">Машқҳо</a>
+          <a href="#calculator" data-i18n="nav_calc">Калкулятор</a>
+          <a href="#klasterho" data-i18n="nav_clusters">Кластерҳо</a>
+          <a href="/app-ads.txt">app-ads.txt</a>
+        </nav>
+
+        <div class="controls-group">
+          <!-- Переключатель языка -->
+          <button class="btn-control" id="lang-btn" title="Иваз кардани забон / Сменить язык">
+            🌐 <span id="lang-label">TJ</span>
+          </button>
+          <!-- Переключатель темы -->
+          <button class="btn-control" id="theme-btn" title="Иваз кардани мавзӯъ / Сменить тему">
+            <svg id="theme-icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg id="theme-icon-moon" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
       </div>
-      <span class="brand-title">Dovtalabon</span>
-    </a>
-    <nav class="nav-links">
-      <a href="#imtiyohon">Имтиҳонҳо</a>
-      <a href="#masqho">Машқҳо</a>
-      <a href="#calculator">Калкулятор</a>
-      <a href="#klasterho">Кластерҳо</a>
-      <a href="/app-ads.txt">app-ads.txt</a>
-    </nav>
+    </div>
   </header>
 
   <section class="hero">
-    <div class="badge">✨ Барномаи рақами 1 барои дохилшавандагони Тоҷикистон</div>
-    <h1>Тайёрии комил ба имтиҳонҳои <span>ММТ 2026</span></h1>
-    <p>Dovtalabon — ёрдамчии беҳтарини шумо барои муваффақона гузаштани озмуни Маркази миллии тестии назди Президенти Ҷумҳурии Тоҷикистон мебошад.</p>
+    <div class="badge" data-i18n="hero_badge">✨ Барномаи рақами 1 барои дохилшавандагони Тоҷикистон</div>
+    <h1 data-i18n="hero_title">Тайёрии комил ба имтиҳонҳои <span>ММТ 2026</span></h1>
+    <p data-i18n="hero_desc">Dovtalabon — ёрдамчии беҳтарини шумо барои муваффақона гузаштани озмуни Маркази миллии тестии назди Президенти Ҷумҳурии Тоҷикистон мебошад.</p>
     <div class="hero-buttons">
-      <a href="https://play.google.com/store" class="btn-primary">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-        Бозгирӣ аз Google Play
+      <a href="https://play.google.com/store/apps/details?id=tj.dovtalabon.app&pli=1" target="_blank" class="btn-primary" id="gp-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        <span data-i18n="btn_gp">Бозгирӣ аз Google Play</span>
       </a>
     </div>
   </section>
@@ -414,51 +502,51 @@
   <section class="stats-bar">
     <div class="stat-card">
       <div class="stat-number">6,880+</div>
-      <div class="stat-label">Саволҳои тесть</div>
+      <div class="stat-label" data-i18n="stat_questions">Саволҳои тестӣ</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">5</div>
-      <div class="stat-label">Кластери расмӣ</div>
+      <div class="stat-label" data-i18n="stat_clusters">Кластери расмӣ</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">100%</div>
-      <div class="stat-label">Кори офлайн</div>
+      <div class="stat-label" data-i18n="stat_offline">Кори офлайн</div>
     </div>
     <div class="stat-card">
       <div class="stat-number">5 Соли</div>
-      <div class="stat-label">Омори баллҳо (2021-2025)</div>
+      <div class="stat-label" data-i18n="stat_years">Омори баллҳо (2021-2025)</div>
     </div>
   </section>
 
   <section class="features-section" id="imtiyohon">
     <div class="section-header">
-      <h2>Имкониятҳои асосии барнома</h2>
-      <p>Ҳама роҳҳои зарурӣ барои омодагии ҳамаҷониба ба озмун</p>
+      <h2 data-i18n="sec_features_title">Имкониятҳои асосии барнома</h2>
+      <p data-i18n="sec_features_desc">Ҳама роҳҳои зарурӣ барои омодагии ҳамаҷониба ба озмун</p>
     </div>
 
-    <div class="grid-3 mb-30" style="margin-bottom: 28px;">
+    <div class="grid-3" style="margin-bottom: 28px;">
       <div class="feature-card">
         <div class="f-icon icon-blue">
           <svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3>⚡ Симулятори Имтиҳон</h3>
-        <p>Симулятсияи пурраи имтиҳони ҳақиқӣ бо таймери 220-дақиқагӣ, тақсимоти дақиқи фанҳо ва ҳисоби баллҳои шкалавӣ (Шкала 1-500).</p>
+        <h3 data-i18n="f1_title">⚡ Симулятори Имтиҳон</h3>
+        <p data-i18n="f1_desc">Симулятсияи пурраи имтиҳони ҳақиқӣ бо таймери 220-дақиқагӣ, тақсимоти дақиқи фанҳо ва ҳисоби баллҳои шкалавӣ (Шкала 1-500).</p>
       </div>
 
-      <div class="feature-card">
+      <div class="feature-card" id="masqho">
         <div class="f-icon icon-purple">
           <svg viewBox="0 0 24 24" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
-        <h3>🎯 Машқҳо аз рӯи фанҳо</h3>
-        <p>Озодона фанни дилхоҳатонро (Математика, Физика, Забони тоҷикӣ, Химия ва ғ.) интихоб карда, бе маҳдудияти вақт маҳорати худро сайқал диҳед.</p>
+        <h3 data-i18n="f2_title">🎯 Машқҳо аз рӯи фанҳо</h3>
+        <p data-i18n="f2_desc">Озодона фанни дилхоҳатонро (Математика, Физика, Забони тоҷикӣ, Химия ва ғ.) интихоб карда, бе маҳдудияти вақт маҳорати худро сайқал диҳед.</p>
       </div>
 
       <div class="feature-card" id="calculator">
         <div class="f-icon icon-amber">
           <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
         </div>
-        <h3>🧮 Калькулятори баллҳо</h3>
-        <p>Баллҳои бадастовардаатонро ворид кунед ва донед, ки ба кадом донишгоҳҳо ва ихтисосҳо (ройгон/шартномавӣ) имконияти дохил шудан доред.</p>
+        <h3 data-i18n="f3_title">🧮 Калькулятори баллҳо</h3>
+        <p data-i18n="f3_desc">Баллҳои бадастовардаатонро ворид кунед ва донед, ки ба кадом донишгоҳҳо ва ихтисосҳо (ройгон/шартномавӣ) имконияти дохил шудан доред.</p>
       </div>
     </div>
 
@@ -467,54 +555,158 @@
         <div class="f-icon icon-emerald">
           <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <h3>🏆 Системаи Муваффақиятҳо (Achievements)</h3>
-        <p>Рӯз ба рӯз пешрафти худро пайгирӣ кунед. Барои пайваста машқ кардан ва пайдо кардани дониши мукаммал медалҳо ва мукофотҳо ба даст оред.</p>
+        <h3 data-i18n="f4_title">🏆 Системаи Муваффақиятҳо</h3>
+        <p data-i18n="f4_desc">Рӯз ба рӯз пешрафти худро пайгирӣ кунед. Барои пайваста машқ кардан ва пайдо кардани дониши мукаммал медалҳо ва мукофотҳо ба даст оред.</p>
       </div>
 
       <div class="feature-card">
         <div class="f-icon icon-rose">
           <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
         </div>
-        <h3>🏛 Каталоги пӯрраи донишгоҳҳо</h3>
-        <p>Маълумоти мукаммал дар бораи тамоми олии Ҷумҳурии Тоҷикистон, рамзҳои ихтисосҳо ва нақшаи қабули донишҷӯён.</p>
+        <h3 data-i18n="f5_title">🏛 Каталоги пӯрраи донишгоҳҳо</h3>
+        <p data-i18n="f5_desc">Маълумоти мукаммал дар бораи тамоми олии Ҷумҳурии Тоҷикистон, рамзҳои ихтисосҳо ва нақшаи қабули донишҷӯён.</p>
       </div>
     </div>
 
     <div class="cluster-banner" id="klasterho">
-      <h2 style="font-size: 2rem; margin-bottom: 8px;">Дастгирии тамоми 5 кластери ММТ</h2>
-      <p style="color: #94a3b8; font-size: 1.05rem;">Барнома саволҳоро барои ҳамаи самтҳои таҳсил пӯрра фаро мегирад:</p>
+      <h2 data-i18n="cluster_title" style="font-size: 2rem; margin-bottom: 8px;">Дастгирии тамоми 5 кластери ММТ</h2>
+      <p data-i18n="cluster_desc" style="font-size: 1.05rem; opacity: 0.85;">Барнома саволҳоро барои ҳамаи самтҳои таҳсил пӯрра фаро мегирад:</p>
 
       <div class="cluster-grid">
         <div class="cluster-item">
           <div class="cluster-num">1</div>
-          <div class="cluster-name">Табиӣ ва техникӣ</div>
+          <div class="cluster-name" data-i18n="c1">Табиӣ ва техникӣ</div>
         </div>
         <div class="cluster-item">
           <div class="cluster-num">2</div>
-          <div class="cluster-name">Иқтисод ва география</div>
+          <div class="cluster-name" data-i18n="c2">Иқтисод ва география</div>
         </div>
         <div class="cluster-item">
           <div class="cluster-num">3</div>
-          <div class="cluster-name">Филология ва санъат</div>
+          <div class="cluster-name" data-i18n="c3">Филология ва санъат</div>
         </div>
         <div class="cluster-item">
           <div class="cluster-num">4</div>
-          <div class="cluster-name">Ҷомеашиносӣ ва ҳуқуқ</div>
+          <div class="cluster-name" data-i18n="c4">Ҷомеашиносӣ ва ҳуқуқ</div>
         </div>
         <div class="cluster-item">
           <div class="cluster-num">5</div>
-          <div class="cluster-name">Тиббӣ ва биология</div>
+          <div class="cluster-name" data-i18n="c5">Тиббӣ ва биология</div>
         </div>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <p>&copy; 2026 Dovtalabon. Ҳамаи ҳуқуқҳо ҳифз карда шудаанд.</p>
+    <p data-i18n="rights">&copy; 2026 Dovtalabon. Ҳамаи ҳуқуқҳо ҳифз карда шудаанд.</p>
     <p style="margin-top: 10px;">
       <a href="/app-ads.txt">app-ads.txt</a> | 
-      <a href="https://suhay1i.github.io/rohnamo-privacy/">Сиёсати махфият</a>
+      <a href="https://suhay1i.github.io/rohnamo-privacy/">Сиёсати махфият / Политика конфиденциальности</a>
     </p>
   </footer>
+
+  <script>
+    const translations = {
+      tj: {
+        nav_exams: 'Имтиҳонҳо',
+        nav_train: 'Машқҳо',
+        nav_calc: 'Калкулятор',
+        nav_clusters: 'Кластерҳо',
+        hero_badge: '✨ Барномаи рақами 1 барои дохилшавандагони Тоҷикистон',
+        hero_title: 'Тайёрии комил ба имтиҳонҳои <span>ММТ 2026</span>',
+        hero_desc: 'Dovtalabon — ёрдамчии беҳтарини шумо барои муваффақона гузаштани озмуни Маркази миллии тестии назди Президенти Ҷумҳурии Тоҷикистон мебошад.',
+        btn_gp: 'Бозгирӣ аз Google Play',
+        stat_questions: 'Саволҳои тестӣ',
+        stat_clusters: 'Кластери расмӣ',
+        stat_offline: 'Кори офлайн',
+        stat_years: 'Омори баллҳо (2021-2025)',
+        sec_features_title: 'Имкониятҳои асосии барнома',
+        sec_features_desc: 'Ҳама роҳҳои зарурӣ барои омодагии ҳамаҷониба ба озмун',
+        f1_title: '⚡ Симулятори Имтиҳон',
+        f1_desc: 'Симулятсияи пурраи имтиҳони ҳақиқӣ бо таймери 220-дақиқагӣ, тақсимоти дақиқи фанҳо ва ҳисоби баллҳои шкалавӣ (Шкала 1-500).',
+        f2_title: '🎯 Машқҳо аз рӯи фанҳо',
+        f2_desc: 'Озодона фанни дилхоҳатонро (Математика, Физика, Забони тоҷикӣ, Химия ва ғ.) интихоб карда, бе маҳдудияти вақт маҳорати худро сайқал диҳед.',
+        f3_title: '🧮 Калькулятори баллҳо',
+        f3_desc: 'Баллҳои бадастовардаатонро ворид кунед ва донед, ки ба кадом донишгоҳҳо ва ихтисосҳо (ройгон/шартномавӣ) имконияти дохил шудан доред.',
+        f4_title: '🏆 Системаи Муваффақиятҳо',
+        f4_desc: 'Рӯз ба рӯз пешрафти худро пайгирӣ кунед. Барои пайваста машқ кардан ва пайдо кардани дониши мукаммал медалҳо ва мукофотҳо ба даст оред.',
+        f5_title: '🏛 Каталоги пӯрраи донишгоҳҳо',
+        f5_desc: 'Маълумоти мукаммал дар бораи тамоми олии Ҷумҳурии Тоҷикистон, рамзҳои ихтисосҳо ва нақшаи қабули донишҷӯён.',
+        cluster_title: 'Дастгирии тамоми 5 кластери ММТ',
+        cluster_desc: 'Барнома саволҳоро барои ҳамаи самтҳои таҳсил пӯрра фаро мегирад:',
+        c1: 'Табиӣ ва техникӣ',
+        c2: 'Иқтисод ва география',
+        c3: 'Филология ва санъат',
+        c4: 'Ҷомеашиносӣ ва ҳуқуқ',
+        c5: 'Тиббӣ ва биология',
+        rights: '© 2026 Dovtalabon. Ҳамаи ҳуқуқҳо ҳифз карда шудаанд.'
+      },
+      ru: {
+        nav_exams: 'Экзамены',
+        nav_train: 'Тренировки',
+        nav_calc: 'Калькулятор',
+        nav_clusters: 'Кластеры',
+        hero_badge: '✨ Приложение №1 для абитуриентов Таджикистана',
+        hero_title: 'Комплексная подготовка к экзаменам <span>НЦТ 2026</span>',
+        hero_desc: 'Dovtalabon — ваш лучший помощник для успешного прохождения вступительных экзаменов Национального Тестового Центра при Президенте Республики Таджикистан.',
+        btn_gp: 'Скачать в Google Play',
+        stat_questions: 'Тестовых вопросов',
+        stat_clusters: 'Официальных кластеров',
+        stat_offline: 'Офлайн работа',
+        stat_years: 'Архив баллов (2021-2025)',
+        sec_features_title: 'Главные возможности приложения',
+        sec_features_desc: 'Всё необходимое для эффективной и успешной подготовки',
+        f1_title: '⚡ Симулятор Экзамена',
+        f1_desc: 'Полное воссоздание реального экзамена с таймером на 220 минут, точным распределением предметов и расчетом шкалированных баллов (1-500).',
+        f2_title: '🎯 Тренировки по предметам',
+        f2_desc: 'Тренируйтесь по любому предмету (Математика, Физика, Таджикский язык, Химия и др.) без ограничения по времени.',
+        f3_title: '🧮 Калькулятор баллов',
+        f3_desc: 'Введите набранные баллы и узнайте, на какие специальности и в какие ВУЗы (бюджет/платно) у вас высокие шансы поступить.',
+        f4_title: '🏆 Система достижений',
+        f4_desc: 'Отслеживайте ежедневный прогресс, зарабатывайте награды за серии тренировок и повышайте уровень знаний.',
+        f5_title: '🏛 Каталог ВУЗов и специальностей',
+        f5_desc: 'Полный справочник университетов Республики Таджикистан, кодов специальностей и проходных баллов.',
+        cluster_title: 'Поддержка всех 5 кластеров НЦТ',
+        cluster_desc: 'Приложение содержит вопросы для всех направлений обучения:',
+        c1: 'Естественный и технический',
+        c2: 'Экономика и география',
+        c3: 'Филология и искусство',
+        c4: 'Обществознание и право',
+        c5: 'Медицина и биология',
+        rights: '© 2026 Dovtalabon. Все права защищены.'
+      }
+    };
+
+    let currentLang = 'tj';
+
+    // Элементы
+    const htmlEl = document.documentElement;
+    const themeBtn = document.getElementById('theme-btn');
+    const sunIcon = document.getElementById('theme-icon-sun');
+    const moonIcon = document.getElementById('theme-icon-moon');
+    const langBtn = document.getElementById('lang-btn');
+    const langLabel = document.getElementById('lang-label');
+
+    // Переключение темы
+    themeBtn.addEventListener('click', () => {
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', newTheme);
+      sunIcon.style.display = newTheme === 'dark' ? 'none' : 'block';
+      moonIcon.style.display = newTheme === 'dark' ? 'block' : 'none';
+    });
+
+    // Переключение языка
+    langBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'tj' ? 'ru' : 'tj';
+      langLabel.textContent = currentLang.toUpperCase();
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          el.innerHTML = translations[currentLang][key];
+        }
+      });
+    });
+  </script>
 </body>
 </html>
