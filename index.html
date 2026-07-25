@@ -749,7 +749,22 @@
     const langBtn = document.getElementById('lang-btn');
     const langLabel = document.getElementById('lang-label');
 
-    // Переключение темы
+    // Определение системной темы
+    function applySystemTheme() {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = prefersDark ? 'dark' : 'light';
+      htmlEl.setAttribute('data-theme', theme);
+      sunIcon.style.display = theme === 'dark' ? 'none' : 'block';
+      moonIcon.style.display = theme === 'dark' ? 'block' : 'none';
+    }
+
+    // Первоначальная установка темы из системы
+    applySystemTheme();
+
+    // Слушатель изменения системной темы
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
+
+    // Ручное переключение темы
     themeBtn.addEventListener('click', () => {
       const isDark = htmlEl.getAttribute('data-theme') === 'dark';
       const newTheme = isDark ? 'light' : 'dark';
@@ -758,9 +773,9 @@
       moonIcon.style.display = newTheme === 'dark' ? 'block' : 'none';
     });
 
-    // Переключение языка
-    langBtn.addEventListener('click', () => {
-      currentLang = currentLang === 'tj' ? 'ru' : 'tj';
+    // Функция обновления текстов при смене языка
+    function updateLanguage(lang) {
+      currentLang = lang;
       langLabel.textContent = currentLang.toUpperCase();
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -768,6 +783,15 @@
           el.innerHTML = translations[currentLang][key];
         }
       });
+    }
+
+    // Установка таджикского языка по умолчанию
+    updateLanguage('tj');
+
+    // Ручное переключение языка
+    langBtn.addEventListener('click', () => {
+      const nextLang = currentLang === 'tj' ? 'ru' : 'tj';
+      updateLanguage(nextLang);
     });
   </script>
 </body>
