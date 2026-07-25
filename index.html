@@ -3,20 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dovtalabon — Подготовка к экзаменам ММТ</title>
-  <meta name="description" content="Мобильное приложение Dovtalabon для подготовка к централизованным вступительным экзаменам ММТ в Таджикистане." />
+  <title>Dovtalabon — Комплексная подготовка к экзаменам ММТ</title>
+  <meta name="description" content="Мобильное приложение Dovtalabon: реальные экзамены, тренировки по предметам, калькулятор проходных баллов, аналитика прогресса и выбор специальности." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f172a;
-      --card-bg: rgba(30, 41, 59, 0.7);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #3b82f6;
+      --bg: #090d16;
+      --card-bg: rgba(21, 30, 49, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-blue: #3b82f6;
       --accent-purple: #8b5cf6;
-      --border: rgba(255, 255, 255, 0.1);
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
     }
     * {
       box-sizing: border-box;
@@ -26,155 +29,360 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--bg);
-      color: var(--text-main);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      color: var(--text-primary);
+      overflow-x: hidden;
       line-height: 1.6;
     }
-    .background-glow {
+    .blur-glow {
       position: absolute;
-      width: 300px;
-      height: 300px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-purple));
-      filter: blur(100px);
-      opacity: 0.25;
       border-radius: 50%;
-      z-index: 0;
+      filter: blur(120px);
       pointer-events: none;
+      z-index: 0;
     }
-    .container {
+    .glow-1 {
+      top: -100px;
+      right: -50px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25), transparent);
+    }
+    .glow-2 {
+      top: 600px;
+      left: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent);
+    }
+    .glow-3 {
+      bottom: 200px;
+      right: -100px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.18), transparent);
+    }
+
+    header {
       position: relative;
-      z-index: 1;
-      max-width: 600px;
-      width: 100%;
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 40px 32px;
-      text-align: center;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .icon-wrapper {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-purple));
-      border-radius: 20px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
-      box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
     }
-    .icon-wrapper svg {
-      width: 44px;
-      height: 44px;
-      fill: none;
+    .logo-icon svg {
+      width: 26px;
+      height: 26px;
       stroke: #ffffff;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+    }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      max-width: 1000px;
+      margin: 60px auto 80px;
+      text-align: center;
+      padding: 0 24px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 100px;
+      color: var(--accent-blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
     }
     h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 40%, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    p.subtitle {
-      color: var(--text-muted);
-      font-size: 1rem;
-      margin-bottom: 32px;
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      max-width: 720px;
+      margin: 0 auto 36px;
     }
-    .features {
+
+    .stats-bar {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-bottom: 32px;
-      text-align: left;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 100px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
     }
-    .feature-card {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      padding: 16px;
-      border-radius: 16px;
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      text-align: center;
+      backdrop-filter: blur(10px);
     }
-    .feature-card h3 {
-      font-size: 0.9rem;
-      font-weight: 700;
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 900;
       margin-bottom: 4px;
-      color: var(--accent);
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .feature-card p {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      font-weight: 500;
     }
-    .btn {
-      display: inline-flex;
+
+    .features-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto 100px;
+      padding: 0 24px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .section-header p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 32px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .feature-box:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .f-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-purple));
-      color: #ffffff;
+      margin-bottom: 20px;
+    }
+    .f-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke-width: 2.2;
+      fill: none;
+    }
+    .icon-blue { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); }
+    .icon-purple { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); }
+    .icon-emerald { background: rgba(16, 185, 129, 0.15); color: var(--accent-emerald); }
+    .icon-amber { background: rgba(245, 158, 11, 0.15); color: var(--accent-amber); }
+    .icon-rose { background: rgba(244, 63, 94, 0.15); color: var(--accent-rose); }
+
+    .feature-box h3 {
+      font-size: 1.25rem;
       font-weight: 700;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 16px;
-      transition: all 0.2s ease;
-      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+      margin-bottom: 10px;
     }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
+    .feature-box p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      line-height: 1.55;
     }
-    footer {
-      margin-top: 32px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
+
+    .footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 24px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
     }
-    footer a {
-      color: var(--text-muted);
+    .footer a {
+      color: var(--text-secondary);
+      margin: 0 12px;
       text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.3rem; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
-  <div class="background-glow"></div>
-  <main class="container">
-    <div class="icon-wrapper">
-      <svg viewBox="0 0 24 24">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/>
-      </svg>
-    </div>
-    <h1>Dovtalabon</h1>
-    <p class="subtitle">Приложение для быстрой и эффективной подготовки к централизованным вступительным экзаменам ММТ в Таджикистане.</p>
-    
-    <div class="features">
-      <div class="feature-card">
-        <h3>🎯 База тестов</h3>
-        <p>Тысячи актуальных тестовых вопросов по всем кластерам и предметам.</p>
-      </div>
-      <div class="feature-card">
-        <h3>📊 Статистика</h3>
-        <p>Отслеживание прогресса, разбор ошибок и подсчёт баллов.</p>
-      </div>
-    </div>
+  <div class="blur-glow glow-1"></div>
+  <div class="blur-glow glow-2"></div>
+  <div class="blur-glow glow-3"></div>
 
-    <a href="https://play.google.com/store" class="btn" id="download-btn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-      Скачать в Google Play
+  <header>
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+      </div>
+      Dovtalabon
     </a>
+    <nav class="nav-links">
+      <a href="#features">Функции</a>
+      <a href="#clusters">Кластеры</a>
+      <a href="#calculator">Калькулятор</a>
+      <a href="/app-ads.txt">app-ads.txt</a>
+    </nav>
+  </header>
 
-    <footer>
-      &copy; 2026 Dovtalabon. Все права защищены.
-    </footer>
-  </main>
+  <section class="hero">
+    <div class="badge">🚀 Официальное приложение для абитуриентов Таджикистана</div>
+    <h1>Всё для успешной сдачи экзаменов ММТ в одном приложении</h1>
+    <p>Dovtalabon объединяет реальные экзаменационные симуляторы, тренировки по предметам, подробный каталог специальностей и калькулятор шансов поступления.</p>
+  </section>
+
+  <section class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-number">6,880+</div>
+      <div class="stat-label">Вопросов с разбором</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5</div>
+      <div class="stat-label">Официальных кластеров</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">100%</div>
+      <div class="stat-label">Автономная работа</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">5+</div>
+      <div class="stat-label">Лет архивных баллов</div>
+    </div>
+  </section>
+
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <h2>Главные возможности приложения</h2>
+      <p>Каждый модуль разработан для максимальной эффективности вашей подготовки</p>
+    </div>
+
+    <div class="grid-2 mb-30">
+      <div class="feature-box">
+        <div class="f-icon icon-blue">
+          <svg viewBox="0 0 24 24" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h3>⚡ Режим «Реальный экзамен»</h3>
+        <p>Точное воссоздание условий официального экзамена ММТ. Ограничение по времени (220 минут), последовательное прохождение предметов, распределение вопросов по типам и мгновенный подсчёт шкалированных баллов (Шкала 1-500).</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="f-icon icon-purple">
+          <svg viewBox="0 0 24 24" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3>🎯 Предметные тренировки</h3>
+        <p>Тренируйтесь по каждому предмету отдельно (Математика, Физика, Химия, Таджикский язык и др.). Выбирайте количество вопросов и проходите материал в удобном для вас темпе.</p>
+      </div>
+    </div>
+
+    <div class="grid-3">
+      <div class="feature-box">
+        <div class="f-icon icon-amber">
+          <svg viewBox="0 0 24 24" stroke="currentColor"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>
+        </div>
+        <h3>🧮 Калькулятор баллов и прохода</h3>
+        <p>Введите ваши набранные баллы и мгновенно узнайте, в какие вузы и специальности вы проходите по бюджету или платному обучению на основе архива ММТ (2021–2025 гг.).</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="f-icon icon-emerald">
+          <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>🏆 Достижения и Стрик-система</h3>
+        <p>Отслеживайте свой ежедневный прогресс, зарабатывайте награды за серии тренировок (Streak) и открывайте достижения за усвоение сложных тем.</p>
+      </div>
+
+      <div class="feature-box">
+        <div class="f-icon icon-rose">
+          <svg viewBox="0 0 24 24" stroke="currentColor"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <h3>🏛 Полная база вузов и специальностей</h3>
+        <p>Полный справочник университетов и специальностей Республики Таджикистан с кодами, планами приёма и динамикой проходных баллов.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 Dovtalabon. Все права защищены.</p>
+    <p style="margin-top: 8px;">
+      <a href="/app-ads.txt">app-ads.txt</a> |
+      <a href="https://suhay1i.github.io/rohnamo-privacy/">Политика конфиденциальности</a>
+    </p>
+  </footer>
 </body>
 </html>
