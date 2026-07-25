@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dovtalabon — Барномаи пӯрра барои тайёрӣ ба имтиҳонҳои ММТ</title>
-  <meta name="description" content="Барномаи мобилии Dovtalabon: симуляторҳои имтиҳон, машқҳо аз рӯи фанҳо, калкулятори баллҳо ва каталоги пӯрраи ихтисосҳо барои дохилшавандагон." />
+  <title>Dovtalabon — Барномаи рақами 1 барои тайёрӣ ба имтиҳонҳои ММТ 2026</title>
+  <meta name="description" content="Платформаи мукаммали омодагӣ ба имтиҳонҳои марказонидаи дохилшавии ММТ дар Тоҷикистон. Симуляторҳо, машқҳои офлайн, калкулятори баллҳо ва омори пӯрраи донишгоҳҳо." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -26,7 +26,7 @@
       --shadow-glow: 0 12px 30px rgba(37, 99, 235, 0.2);
       --cluster-banner-bg: linear-gradient(135deg, #1e293b, #0f172a);
       --cluster-banner-text: #ffffff;
-      --header-bg: rgba(250, 252, 254, 0.8);
+      --header-bg: rgba(250, 252, 254, 0.85);
     }
 
     [data-theme="dark"] {
@@ -46,7 +46,7 @@
       --shadow-glow: 0 12px 30px rgba(59, 130, 246, 0.3);
       --cluster-banner-bg: linear-gradient(135deg, #151e31, #0b111e);
       --cluster-banner-text: #f8fafc;
-      --header-bg: rgba(9, 13, 22, 0.8);
+      --header-bg: rgba(9, 13, 22, 0.85);
     }
 
     * {
@@ -75,7 +75,7 @@
       transform: translateX(-50%);
       width: 100%;
       max-width: 1400px;
-      height: 700px;
+      height: 800px;
       background: radial-gradient(circle at 50% -20%, rgba(37, 99, 235, 0.15), rgba(124, 58, 237, 0.08), transparent 70%);
       pointer-events: none;
       z-index: 0;
@@ -85,7 +85,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(16px);
       background: var(--header-bg);
       border-bottom: 1px solid var(--card-border);
     }
@@ -107,8 +107,8 @@
     }
 
     .logo-icon {
-      width: 44px;
-      height: 44px;
+      width: 46px;
+      height: 46px;
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
       border-radius: 14px;
       display: flex;
@@ -126,7 +126,7 @@
     }
 
     .brand-title {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: var(--text-main);
       letter-spacing: -0.5px;
@@ -158,7 +158,7 @@
     .controls-group {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       padding: 4px;
@@ -179,7 +179,7 @@
       gap: 6px;
     }
 
-    .btn-control:hover, .btn-control.active {
+    .btn-control:hover {
       background: var(--accent-blue-light);
       color: var(--accent-blue);
     }
@@ -196,7 +196,7 @@
       position: relative;
       z-index: 1;
       max-width: 1000px;
-      margin: 50px auto 70px;
+      margin: 60px auto 70px;
       text-align: center;
       padding: 0 24px;
     }
@@ -216,7 +216,7 @@
     }
 
     h1 {
-      font-size: 3.6rem;
+      font-size: 3.8rem;
       font-weight: 900;
       line-height: 1.15;
       margin-bottom: 20px;
@@ -233,7 +233,7 @@
     .hero p {
       font-size: 1.25rem;
       color: var(--text-muted);
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 auto 36px;
       font-weight: 500;
     }
@@ -252,16 +252,16 @@
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
       color: #ffffff;
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       text-decoration: none;
-      padding: 16px 36px;
-      border-radius: 18px;
+      padding: 18px 40px;
+      border-radius: 20px;
       box-shadow: var(--shadow-glow);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 16px 35px rgba(37, 99, 235, 0.35);
+      box-shadow: 0 18px 40px rgba(37, 99, 235, 0.35);
     }
 
     .stats-bar {
@@ -286,7 +286,7 @@
 
     .stat-number {
       font-family: 'Outfit', sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       font-weight: 900;
       margin-bottom: 4px;
       color: var(--accent-blue);
@@ -312,7 +312,7 @@
     }
 
     .section-header h2 {
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       font-weight: 900;
       margin-bottom: 12px;
       color: var(--text-main);
@@ -385,6 +385,28 @@
       color: var(--text-muted);
       font-size: 1rem;
       line-height: 1.6;
+    }
+
+    .feature-list {
+      margin-top: 16px;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .feature-list li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--accent-emerald);
+      flex-shrink: 0;
     }
 
     .cluster-banner {
@@ -488,7 +510,7 @@
   </header>
 
   <section class="hero">
-    <div class="badge" data-i18n="hero_badge">✨ Барномаи рақами 1 барои дохилшавандагони Тоҷикистон</div>
+    <div class="badge" data-i18n="hero_badge">✨ Платформаи рақами 1 барои дохилшавандагони Тоҷикистон</div>
     <h1 data-i18n="hero_title">Тайёрии комил ба имтиҳонҳои <span>ММТ 2026</span></h1>
     <p data-i18n="hero_desc">Dovtalabon — ёрдамчии беҳтарини шумо барои муваффақона гузаштани озмуни Маркази миллии тестии назди Президенти Ҷумҳурии Тоҷикистон мебошад.</p>
     <div class="hero-buttons">
@@ -520,8 +542,8 @@
 
   <section class="features-section" id="imtiyohon">
     <div class="section-header">
-      <h2 data-i18n="sec_features_title">Имкониятҳои асосии барнома</h2>
-      <p data-i18n="sec_features_desc">Ҳама роҳҳои зарурӣ барои омодагии ҳамаҷониба ба озмун</p>
+      <h2 data-i18n="sec_features_title">Имкониятҳои мукаммали барнома</h2>
+      <p data-i18n="sec_features_desc">Ҳамаи модулҳо барои омодагии баландсифат ва натиҷаи дилхоҳ</p>
     </div>
 
     <div class="grid-3" style="margin-bottom: 28px;">
@@ -531,6 +553,10 @@
         </div>
         <h3 data-i18n="f1_title">⚡ Симулятори Имтиҳон</h3>
         <p data-i18n="f1_desc">Симулятсияи пурраи имтиҳони ҳақиқӣ бо таймери 220-дақиқагӣ, тақсимоти дақиқи фанҳо ва ҳисоби баллҳои шкалавӣ (Шкала 1-500).</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f1_item1">Таймери расмии 220 дақиқа</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f1_item2">Шкалаи расмии баллгузорӣ (1-500)</span></li>
+        </ul>
       </div>
 
       <div class="feature-card" id="masqho">
@@ -539,6 +565,10 @@
         </div>
         <h3 data-i18n="f2_title">🎯 Машқҳо аз рӯи фанҳо</h3>
         <p data-i18n="f2_desc">Озодона фанни дилхоҳатонро (Математика, Физика, Забони тоҷикӣ, Химия ва ғ.) интихоб карда, бе маҳдудияти вақт маҳорати худро сайқал диҳед.</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f2_item1">Ҳамаи фанҳои 5 кластер</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f2_item2">Ҷавобҳои дуруст ва таҳлил</span></li>
+        </ul>
       </div>
 
       <div class="feature-card" id="calculator">
@@ -547,6 +577,10 @@
         </div>
         <h3 data-i18n="f3_title">🧮 Калькулятори баллҳо</h3>
         <p data-i18n="f3_desc">Баллҳои бадастовардаатонро ворид кунед ва донед, ки ба кадом донишгоҳҳо ва ихтисосҳо (ройгон/шартномавӣ) имконияти дохил шудан доред.</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f3_item1">Омори 2021-2025 гг.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f3_item2">Бюджет ва шартномавӣ</span></li>
+        </ul>
       </div>
     </div>
 
@@ -557,6 +591,10 @@
         </div>
         <h3 data-i18n="f4_title">🏆 Системаи Муваффақиятҳо</h3>
         <p data-i18n="f4_desc">Рӯз ба рӯз пешрафти худро пайгирӣ кунед. Барои пайваста машқ кардан ва пайдо кардани дониши мукаммал медалҳо ва мукофотҳо ба даст оред.</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f4_item1">Стрик (Streak) машқҳои ҳаррӯза</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f4_item2">Медалҳо ва дараҷаҳо</span></li>
+        </ul>
       </div>
 
       <div class="feature-card">
@@ -565,12 +603,16 @@
         </div>
         <h3 data-i18n="f5_title">🏛 Каталоги пӯрраи донишгоҳҳо</h3>
         <p data-i18n="f5_desc">Маълумоти мукаммал дар бораи тамоми олии Ҷумҳурии Тоҷикистон, рамзҳои ихтисосҳо ва нақшаи қабули донишҷӯён.</p>
+        <ul class="feature-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f5_item1">Рамзҳои расмии ихтисосҳо</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> <span data-i18n="f5_item2">Ҷойҳои ҷудошуда ва нақшаҳо</span></li>
+        </ul>
       </div>
     </div>
 
     <div class="cluster-banner" id="klasterho">
-      <h2 data-i18n="cluster_title" style="font-size: 2rem; margin-bottom: 8px;">Дастгирии тамоми 5 кластери ММТ</h2>
-      <p data-i18n="cluster_desc" style="font-size: 1.05rem; opacity: 0.85;">Барнома саволҳоро барои ҳамаи самтҳои таҳсил пӯрра фаро мегирад:</p>
+      <h2 data-i18n="cluster_title" style="font-size: 2.2rem; margin-bottom: 8px;">Дастгирии тамоми 5 кластери ММТ</h2>
+      <p data-i18n="cluster_desc" style="font-size: 1.1rem; opacity: 0.85;">Барнома саволҳоро барои ҳамаи самтҳои таҳсил пӯрра фаро мегирад:</p>
 
       <div class="cluster-grid">
         <div class="cluster-item">
@@ -612,7 +654,7 @@
         nav_train: 'Машқҳо',
         nav_calc: 'Калкулятор',
         nav_clusters: 'Кластерҳо',
-        hero_badge: '✨ Барномаи рақами 1 барои дохилшавандагони Тоҷикистон',
+        hero_badge: '✨ Платформаи рақами 1 барои дохилшавандагони Тоҷикистон',
         hero_title: 'Тайёрии комил ба имтиҳонҳои <span>ММТ 2026</span>',
         hero_desc: 'Dovtalabon — ёрдамчии беҳтарини шумо барои муваффақона гузаштани озмуни Маркази миллии тестии назди Президенти Ҷумҳурии Тоҷикистон мебошад.',
         btn_gp: 'Бозгирӣ аз Google Play',
@@ -620,18 +662,28 @@
         stat_clusters: 'Кластери расмӣ',
         stat_offline: 'Кори офлайн',
         stat_years: 'Омори баллҳо (2021-2025)',
-        sec_features_title: 'Имкониятҳои асосии барнома',
-        sec_features_desc: 'Ҳама роҳҳои зарурӣ барои омодагии ҳамаҷониба ба озмун',
+        sec_features_title: 'Имкониятҳои мукаммали барнома',
+        sec_features_desc: 'Ҳамаи модулҳо барои омодагии баландсифат ва натиҷаи дилхоҳ',
         f1_title: '⚡ Симулятори Имтиҳон',
         f1_desc: 'Симулятсияи пурраи имтиҳони ҳақиқӣ бо таймери 220-дақиқагӣ, тақсимоти дақиқи фанҳо ва ҳисоби баллҳои шкалавӣ (Шкала 1-500).',
+        f1_item1: 'Таймери расмии 220 дақиқа',
+        f1_item2: 'Шкалаи расмии баллгузорӣ (1-500)',
         f2_title: '🎯 Машқҳо аз рӯи фанҳо',
         f2_desc: 'Озодона фанни дилхоҳатонро (Математика, Физика, Забони тоҷикӣ, Химия ва ғ.) интихоб карда, бе маҳдудияти вақт маҳорати худро сайқал диҳед.',
+        f2_item1: 'Ҳамаи фанҳои 5 кластер',
+        f2_item2: 'Ҷавобҳои дуруст ва таҳлил',
         f3_title: '🧮 Калькулятори баллҳо',
         f3_desc: 'Баллҳои бадастовардаатонро ворид кунед ва донед, ки ба кадом донишгоҳҳо ва ихтисосҳо (ройгон/шартномавӣ) имконияти дохил шудан доред.',
+        f3_item1: 'Омори 2021-2025 гг.',
+        f3_item2: 'Бюджет ва шартномавӣ',
         f4_title: '🏆 Системаи Муваффақиятҳо',
         f4_desc: 'Рӯз ба рӯз пешрафти худро пайгирӣ кунед. Барои пайваста машқ кардан ва пайдо кардани дониши мукаммал медалҳо ва мукофотҳо ба даст оред.',
+        f4_item1: 'Стрик (Streak) машқҳои ҳаррӯза',
+        f4_item2: 'Медалҳо ва дараҷаҳо',
         f5_title: '🏛 Каталоги пӯрраи донишгоҳҳо',
         f5_desc: 'Маълумоти мукаммал дар бораи тамоми олии Ҷумҳурии Тоҷикистон, рамзҳои ихтисосҳо ва нақшаи қабули донишҷӯён.',
+        f5_item1: 'Рамзҳои расмии ихтисосҳо',
+        f5_item2: 'Ҷойҳои ҷудошуда ва нақшаҳо',
         cluster_title: 'Дастгирии тамоми 5 кластери ММТ',
         cluster_desc: 'Барнома саволҳоро барои ҳамаи самтҳои таҳсил пӯрра фаро мегирад:',
         c1: 'Табиӣ ва техникӣ',
@@ -646,7 +698,7 @@
         nav_train: 'Тренировки',
         nav_calc: 'Калькулятор',
         nav_clusters: 'Кластеры',
-        hero_badge: '✨ Приложение №1 для абитуриентов Таджикистана',
+        hero_badge: '✨ Платформа №1 для абитуриентов Таджикистана',
         hero_title: 'Комплексная подготовка к экзаменам <span>НЦТ 2026</span>',
         hero_desc: 'Dovtalabon — ваш лучший помощник для успешного прохождения вступительных экзаменов Национального Тестового Центра при Президенте Республики Таджикистан.',
         btn_gp: 'Скачать в Google Play',
@@ -654,18 +706,28 @@
         stat_clusters: 'Официальных кластеров',
         stat_offline: 'Офлайн работа',
         stat_years: 'Архив баллов (2021-2025)',
-        sec_features_title: 'Главные возможности приложения',
-        sec_features_desc: 'Всё необходимое для эффективной и успешной подготовки',
+        sec_features_title: 'Расширенные возможности приложения',
+        sec_features_desc: 'Все модули для эффективной и успешной подготовки',
         f1_title: '⚡ Симулятор Экзамена',
         f1_desc: 'Полное воссоздание реального экзамена с таймером на 220 минут, точным распределением предметов и расчетом шкалированных баллов (1-500).',
+        f1_item1: 'Официальный таймер 220 минут',
+        f1_item2: 'Официальная шкала баллов (1-500)',
         f2_title: '🎯 Тренировки по предметам',
         f2_desc: 'Тренируйтесь по любому предмету (Математика, Физика, Таджикский язык, Химия и др.) без ограничения по времени.',
+        f2_item1: 'Все предметы 5 кластеров',
+        f2_item2: 'Правильные ответы и разбор',
         f3_title: '🧮 Калькулятор баллов',
         f3_desc: 'Введите набранные баллы и узнайте, на какие специальности и в какие ВУЗы (бюджет/платно) у вас высокие шансы поступить.',
+        f3_item1: 'Архив баллов 2021-2025 гг.',
+        f3_item2: 'Бюджетные и платные места',
         f4_title: '🏆 Система достижений',
         f4_desc: 'Отслеживайте ежедневный прогресс, зарабатывайте награды за серии тренировок и повышайте уровень знаний.',
+        f4_item1: 'Стрик (Streak) тренировок',
+        f4_item2: 'Медали и ранги знаний',
         f5_title: '🏛 Каталог ВУЗов и специальностей',
         f5_desc: 'Полный справочник университетов Республики Таджикистан, кодов специальностей и проходных баллов.',
+        f5_item1: 'Официальные коды специальностей',
+        f5_item2: 'Планы приема и места',
         cluster_title: 'Поддержка всех 5 кластеров НЦТ',
         cluster_desc: 'Приложение содержит вопросы для всех направлений обучения:',
         c1: 'Естественный и технический',
